@@ -1,4 +1,4 @@
-import 'package:first_project/task.dart';
+import 'package:first_project/components/task.dart';
 import 'package:flutter/material.dart';
 
 class InicialScreen extends StatefulWidget {
@@ -16,34 +16,35 @@ class _InicialScreenState extends State<InicialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
-        title: Text('Tarefas'),
+        title: const Text('Tarefas'),
       ),
       body: AnimatedOpacity(
         opacity: opacidade ? 1 : 0,
-        duration: Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 800),
         child: ListView(
           scrollDirection: Axis.vertical,
-          children: [
+          children: const [
             Task(
                 'Aprender Flutter',
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                "assets/images/dash.png",
                 3),
             Task(
                 'Andar de Bike',
-                "https://tswbike.com/wp-content/uploads/2020/09/108034687_626160478000800_2490880540739582681_n-e1600200953343.jpg",
+                "assets/images/bike.webp",
                 2),
             Task(
-                'Correr',
-                "https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg",
+                'Ler',
+                "assets/images/livro.jpg",
                 5),
             Task(
                 'Correr',
-                "https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg",
+                "assets/images/meditar.jpeg",
                 4),
             Task(
                 'Correr',
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                "assets/images/jogar.jpg",
                 4),
+            SizedBox(height: 80,)
           ],
         ),
       ),
@@ -53,7 +54,7 @@ class _InicialScreenState extends State<InicialScreen> {
             opacidade = !opacidade;
           });
         },
-        child: Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.remove_red_eye),
       ),
     );
   }
