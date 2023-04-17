@@ -1,4 +1,5 @@
 import 'package:first_project/components/task.dart';
+import 'package:first_project/screens/form_screen.dart';
 import 'package:flutter/material.dart';
 
 class InicialScreen extends StatefulWidget {
@@ -9,8 +10,6 @@ class InicialScreen extends StatefulWidget {
 }
 
 class _InicialScreenState extends State<InicialScreen> {
-  bool opacidade = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,43 +17,25 @@ class _InicialScreenState extends State<InicialScreen> {
         leading: Container(),
         title: const Text('Tarefas'),
       ),
-      body: AnimatedOpacity(
-        opacity: opacidade ? 1 : 0,
-        duration: const Duration(milliseconds: 800),
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: const [
-            Task(
-                'Aprender Flutter',
-                "assets/images/dash.png",
-                3),
-            Task(
-                'Andar de Bike',
-                "assets/images/bike.webp",
-                2),
-            Task(
-                'Ler',
-                "assets/images/livro.jpg",
-                5),
-            Task(
-                'Correr',
-                "assets/images/meditar.jpeg",
-                4),
-            Task(
-                'Correr',
-                "assets/images/jogar.jpg",
-                4),
-            SizedBox(height: 80,)
-          ],
-        ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: const [
+          Task('Aprender Flutter', "assets/images/dash.png", 3),
+          Task('Andar de Bike', "assets/images/bike.webp", 2),
+          Task('Ler', "assets/images/livro.jpg", 5),
+          Task('Correr', "assets/images/meditar.jpeg", 4),
+          Task('Correr', "assets/images/jogar.jpg", 4),
+          SizedBox(
+            height: 80,
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            opacidade = !opacidade;
-          });
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const FormScreen()));
         },
-        child: const Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.add),
       ),
     );
   }
