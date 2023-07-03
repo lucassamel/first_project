@@ -34,27 +34,27 @@ class _InitialScreenState extends State<InitialScreen> {
               List<Task>? items = snapshot.data;
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
-                  return Center(
+                  return const Center(
                     child: Column(
-                      children: const [
+                      children: [
                         CircularProgressIndicator(),
                         Text('Carregando'),
                       ],
                     ),
                   );
                 case ConnectionState.waiting:
-                  return Center(
+                  return const Center(
                     child: Column(
-                      children: const [
+                      children: [
                         CircularProgressIndicator(),
                         Text('Carregando'),
                       ],
                     ),
                   );
                 case ConnectionState.active:
-                  return Center(
+                  return const Center(
                     child: Column(
-                      children: const [
+                      children: [
                         CircularProgressIndicator(),
                         Text('Carregando'),
                       ],
@@ -72,9 +72,9 @@ class _InitialScreenState extends State<InitialScreen> {
                       );
                     }
 
-                    return Center(
+                    return const Center(
                       child: Column(
-                        children: const [
+                        children: [
                           Icon(
                             Icons.error_outline,
                             size: 128,
@@ -99,7 +99,7 @@ class _InitialScreenState extends State<InitialScreen> {
               builder: (contextNew) => FormScreen(taskContext: context),
             ),
           ).then((value) => setState(() {
-                print('Recarregando a tela incial');
+                // print('Recarregando a tela incial');
               }));
         },
         child: const Icon(Icons.add),
